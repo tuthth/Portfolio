@@ -1,45 +1,48 @@
-import { About } from "../components/About";
+import { Biography } from "../components/Biography";
 import { Contact } from "../components/Contact";
 import { Education } from "../components/Education";
 import { Experience } from "../components/Experience";
 import { Hero } from "../components/Hero";
+import { LoadingScreen } from "../components/LoadingScreen";
 import { Projects } from "../components/Projects";
 import { Skills } from "../components/Skills";
 
 function Nav() {
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/5 bg-black/60 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-zinc-800/60 bg-[#0f0f0f]/80 backdrop-blur-md">
       <div className="section-padding">
-        <div className="section-max-width flex items-center justify-between py-4 text-xs">
-          <a
-            href="#top"
-            className="font-semibold tracking-[0.2em] uppercase text-zinc-200"
-          >
-            Nguyen Anh Tuan
+        <div className="section-max-width flex items-center justify-between py-3">
+          <a href="#top" className="flex items-center gap-2">
+            <span className="font-northwell text-5xl leading-none text-zinc-100">
+              Tuan
+            </span>
+            <span className="text-base font-semibold tracking-[0.25em] uppercase text-zinc-100">
+              NGUYEN
+            </span>
           </a>
-          <nav className="hidden md:flex gap-6 text-[0.7rem] uppercase tracking-[0.25em] text-muted">
-            <a href="#about" className="hover:text-white transition">
-              About
+          <nav className="hidden md:flex items-center gap-8 font-medium text-base text-zinc-500">
+            <a href="#biography" className="hover:text-zinc-100 transition">
+              Biography
             </a>
-            <a href="#skills" className="hover:text-white transition">
+            <a href="#skills" className="hover:text-zinc-100 transition">
               Skills
             </a>
-            <a href="#experience" className="hover:text-white transition">
+            <a href="#experience" className="hover:text-zinc-100 transition">
               Experience
             </a>
-            <a href="#projects" className="hover:text-white transition">
+            <a href="#projects" className="hover:text-zinc-100 transition">
               Projects
             </a>
-            <a href="#education" className="hover:text-white transition">
+            <a href="#education" className="hover:text-zinc-100 transition">
               Education
             </a>
-            <a href="#contact" className="hover:text-white transition">
+            <a href="#contact" className="hover:text-zinc-100 transition">
               Contact
             </a>
           </nav>
           <a
             href="mailto:tuan.na.02x2@gmail.com"
-            className="hidden sm:inline-flex items-center rounded-full border border-accent px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent hover:bg-accent hover:text-black transition"
+            className="hidden sm:inline-flex items-center rounded-full border border-accent/60 px-5 py-2 font-medium text-sm text-accent transition hover:bg-accent hover:text-black"
           >
             Get in touch
           </a>
@@ -51,24 +54,25 @@ function Nav() {
 
 export default function Page() {
   return (
-    <main className="relative">
-      <Nav />
-      <div className="pt-20 md:pt-24">
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <Contact />
-        <footer className="section-padding py-10 border-t border-white/5 text-[0.7rem] text-muted">
-          <div className="section-max-width flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-            <p>© {new Date().getFullYear()} Nguyen Anh Tuan.</p>
-            <p>Built with Next.js, TypeScript, and Tailwind CSS.</p>
-          </div>
-        </footer>
-      </div>
-    </main>
+    <>
+      <LoadingScreen />
+      <main className="relative">
+        <Nav />
+        <div className="pt-16 md:pt-20">
+          <Hero />
+          <Biography />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Education />
+          <Contact />
+          <footer className="section-padding py-10 border-t border-zinc-800/60 text-sm text-zinc-500">
+            <div className="section-max-width flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+              <p>© 2026 Tuan Nguyen.</p>
+            </div>
+          </footer>
+        </div>
+      </main>
+    </>
   );
 }
-

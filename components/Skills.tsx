@@ -1,97 +1,104 @@
-import { Section } from "./Section";
-
-type SkillGroupProps = {
-  label: string;
-  items: string[];
+type SkillCategoryProps = {
+  title: string;
+  description: string;
+  skills: string[];
 };
 
-function SkillGroup({ label, items }: SkillGroupProps) {
+function SkillCategory({ title, description, skills }: SkillCategoryProps) {
   return (
-    <div className="border-t border-white/5 pt-6">
-      <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
-        {label}
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-sm p-6">
+      <h3 className="text-base font-semibold uppercase tracking-[0.15em] text-zinc-100">
+        {title}
       </h3>
-      <p className="mt-3 text-sm text-zinc-200">
-        {items.join(" · ")}
+      <p className="mt-3 text-[0.9rem] text-zinc-400 leading-relaxed font-medium">
+        {description}
       </p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <span
+            key={skill}
+            className="inline-block rounded-full border border-zinc-700/60 bg-zinc-800/40 px-3 py-1 text-xs text-zinc-300 font-medium"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
 
 export function Skills() {
   return (
-    <Section
+    <section
       id="skills"
-      eyebrow="Capabilities"
-      title="A backend-first toolkit for enterprise systems."
-      subtitle="Focused on .NET, SQL, and the surrounding tools required to ship and maintain production services."
+      className="section-padding py-20 md:py-28 border-t border-zinc-800/60"
+      aria-labelledby="skills-title"
     >
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)]">
-        <div>
-          <p className="text-zinc-200">
-            I specialise in designing RESTful APIs, relational data models, and
-            backend workflows that can scale with demanding environments—from
-            manufacturing floors to aviation training platforms. Clean
-            architecture, clear boundaries, and defensive coding are non‑negotiable
-            parts of my process.
-          </p>
-          <p className="mt-4 text-sm text-zinc-300">
-            I&apos;m comfortable working in existing monoliths, gradually
-            refactoring towards better structure, as well as building new
-            services from scratch with modern .NET and SQL Server.
-          </p>
-        </div>
-        <div className="rounded-3xl border border-white/10 bg-surface/70 p-6 backdrop-blur">
-          <SkillGroup
-            label="Backend & Languages"
-            items={[
+      <div className="section-max-width">
+        <header className="mb-12 md:mb-16 max-w-2xl">
+          <h2
+            id="skills-title"
+            className="font-northwell text-5xl md:text-6xl lg:text-7xl text-zinc-100"
+          >
+            Skills &amp; Tools
+          </h2>
+        </header>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <SkillCategory
+            title="Backend & Languages"
+            description="Experienced in designing RESTful APIs using ASP.NET Core with a focus on reliability, maintainability, and clean architecture."
+            skills={[
               "C#",
               "ASP.NET Core Web API",
               ".NET Framework",
-              "RESTful API design",
+              "RESTful API Design",
               "Java"
             ]}
           />
-          <SkillGroup
-            label="Frontend"
-            items={["HTML5", "CSS3", "JavaScript", "jQuery", "React"]}
+          <SkillCategory
+            title="Frontend"
+            description="Capable of building and maintaining frontend interfaces when working across the full stack."
+            skills={["HTML5", "CSS3", "JavaScript", "jQuery", "React"]}
           />
-          <SkillGroup
-            label="Databases"
-            items={[
+          <SkillCategory
+            title="Databases"
+            description="Skilled in relational database design, query optimisation, and managing large-volume production data."
+            skills={[
               "SQL Server",
               "PostgreSQL",
               "MySQL",
               "MariaDB",
-              "Data modelling",
-              "Query optimisation"
+              "Data Modelling",
+              "Query Optimisation"
             ]}
           />
-          <SkillGroup
-            label="DevOps & Tools"
-            items={[
+          <SkillCategory
+            title="DevOps & Tools"
+            description="Familiar with containerisation, version control workflows, and tools for code quality and deployment."
+            skills={[
               "Git (GitFlow)",
               "Docker",
               "SonarQube",
               "Postman",
               "Apache Tomcat",
-              "FTP integrations"
+              "FTP Integrations"
             ]}
           />
-          <SkillGroup
-            label="Testing & Methodologies"
-            items={[
+          <SkillCategory
+            title="Testing & Methodologies"
+            description="Practised in writing automated tests and working within Agile environments to deliver iterative improvements."
+            skills={[
               "xUnit",
               "Selenium",
               "Playwright",
               "Agile / Scrum",
-              "Code review",
-              "CI-ready workflows"
+              "Code Review",
+              "CI-ready Workflows"
             ]}
           />
         </div>
       </div>
-    </Section>
+    </section>
   );
 }
-

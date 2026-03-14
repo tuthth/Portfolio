@@ -1,10 +1,7 @@
-import { Section } from "./Section";
-
 type ExperienceItemProps = {
   role: string;
   company: string;
   period: string;
-  location: string;
   highlights: string[];
 };
 
@@ -12,23 +9,24 @@ function ExperienceItem({
   role,
   company,
   period,
-  location,
   highlights
 }: ExperienceItemProps) {
   return (
-    <article className="grid gap-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)] py-6 border-t border-white/5">
-      <header>
-        <p className="text-xs uppercase tracking-[0.2em] text-muted">
+    <article className="grid gap-6 md:grid-cols-[220px_1fr] py-8 border-t border-zinc-800/60">
+      {/* Left — metadata */}
+      <div>
+        <p className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-2 font-medium">
           {period}
         </p>
-        <h3 className="mt-2 text-sm font-semibold">{role}</h3>
-        <p className="text-sm text-zinc-300">{company}</p>
-        <p className="mt-1 text-xs text-muted">{location}</p>
-      </header>
-      <ul className="space-y-2 text-sm text-zinc-200">
+        <h3 className="text-lg font-semibold text-zinc-100">{role}</h3>
+        <p className="text-[0.9rem] text-zinc-400 mt-1 font-medium">{company}</p>
+      </div>
+
+      {/* Right — highlights */}
+      <ul className="space-y-3 text-base text-zinc-300 leading-relaxed font-medium">
         {highlights.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span className="mt-[0.45rem] h-[3px] w-3 rounded-full bg-accent" />
+          <li key={item} className="flex gap-3">
+            <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
             <span>{item}</span>
           </li>
         ))}
@@ -39,63 +37,68 @@ function ExperienceItem({
 
 export function Experience() {
   return (
-    <Section
+    <section
       id="experience"
-      eyebrow="Experience"
-      title="From factory floors to flight decks."
-      subtitle="Hands-on experience maintaining legacy systems while shipping new services in production environments."
+      className="section-padding py-20 md:py-28 border-t border-zinc-800/60"
+      aria-labelledby="experience-title"
     >
-      <div className="space-y-4">
-        <ExperienceItem
-          role="MES Developer"
-          company="SAIGON STEC CO., LTD."
-          period="Oct 2025 – Present"
-          location="Ho Chi Minh City, Vietnam"
-          highlights={[
-            "Maintain and enhance large-scale Manufacturing Execution Systems (MES) supporting high-volume production lines.",
-            "Refactor legacy VB.NET modules to improve performance, reliability, and long-term maintainability.",
-            "Design and optimise SQL Server data models and stored procedures processing production logs and inspection data.",
-            "Integrate secondary PHP-based MES components and file-based (FTP) data flows with existing workflows.",
-            "Work closely with production, quality, and equipment engineering teams to resolve incidents with minimal downtime."
-          ]}
-        />
-        <ExperienceItem
-          role="Backend Developer"
-          company="General Era Digital Solution JSC"
-          period="Apr 2025 – Sep 2025"
-          location="Ho Chi Minh City, Vietnam"
-          highlights={[
-            "Built ASP.NET Core Web APIs for an aviation training management system with a focus on compliance and certification workflows.",
-            "Implemented secure digital certificate signing with a Hardware Security Module (HSM).",
-            "Optimised database queries and backend logic to improve performance and reliability under production workloads.",
-            "Implemented Hangfire-based background jobs for long-running and scheduled processing tasks."
-          ]}
-        />
-        <ExperienceItem
-          role="Fullstack Developer"
-          company="General Era Digital Solution JSC"
-          period="Apr 2025 – Sep 2025"
-          location="Ho Chi Minh City, Vietnam"
-          highlights={[
-            "Maintained and improved core backend features in ASP.NET MVC for Training and Learning Management Systems.",
-            "Exposed new capabilities via ASP.NET Core APIs to support modern frontend clients.",
-            "Collaborated with frontend teams using React, jQuery, and Razor Pages to refine flows and usability."
-          ]}
-        />
-        <ExperienceItem
-          role="Intern Tester / Backend Developer"
-          company="HPT Vietnam Corporation"
-          period="May 2023 – Aug 2023"
-          location="Ho Chi Minh City, Vietnam"
-          highlights={[
-            "Contributed backend APIs in .NET 6 for a flight ticket comparison platform.",
-            "Designed SQL Server schemas to handle dynamic pricing and availability data.",
-            "Integrated Selenium-based crawlers to keep datasets up to date.",
-            "Applied Entity Framework Core and dependency injection to keep components modular and testable."
-          ]}
-        />
+      <div className="section-max-width">
+        <header className="mb-12 md:mb-16 max-w-2xl">
+          <h2
+            id="experience-title"
+            className="font-northwell text-5xl md:text-6xl lg:text-7xl text-zinc-100"
+          >
+            Career Journey
+          </h2>
+          <p className="mt-5 text-lg text-zinc-400 leading-relaxed font-medium">
+            Hands-on experience maintaining legacy systems while shipping
+            new services in production environments.
+          </p>
+        </header>
+
+        <div>
+          <ExperienceItem
+            role="MES Developer"
+            company="SAIGON STEC CO., LTD."
+            period="Oct 2025 – Present"
+            highlights={[
+              "Maintained and improved enterprise MES systems supporting high-volume production environments.",
+              "Refactored legacy VB.NET modules to improve maintainability and performance.",
+              "Designed SQL Server schemas handling large volumes of production and inspection data."
+            ]}
+          />
+          <ExperienceItem
+            role="Backend Developer"
+            company="General Era Digital Solution JSC"
+            period="Apr 2025 – Sep 2025"
+            highlights={[
+              "Built ASP.NET Core Web APIs for an aviation training management system with compliance-focused workflows.",
+              "Implemented secure digital certificate signing with a Hardware Security Module (HSM).",
+              "Optimised database queries and backend logic to improve reliability under production workloads."
+            ]}
+          />
+          <ExperienceItem
+            role="Fullstack Developer"
+            company="General Era Digital Solution JSC"
+            period="Apr 2025 – Sep 2025"
+            highlights={[
+              "Maintained and improved core backend features in ASP.NET MVC for Training and Learning Management Systems.",
+              "Exposed new capabilities via ASP.NET Core APIs to support modern frontend clients.",
+              "Collaborated with frontend teams using React, jQuery, and Razor Pages to refine flows and usability."
+            ]}
+          />
+          <ExperienceItem
+            role="Intern Tester / Backend Developer"
+            company="HPT Vietnam Corporation"
+            period="May 2023 – Aug 2023"
+            highlights={[
+              "Contributed backend APIs in .NET 6 for a flight ticket comparison platform.",
+              "Designed SQL Server schemas to handle dynamic pricing and availability data.",
+              "Applied Entity Framework Core and dependency injection to keep components modular and testable."
+            ]}
+          />
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
-

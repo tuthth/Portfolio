@@ -2,16 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom fonts — using TTF for broader browser support */
+@font-face {
+  font-family: "Northwell";
+  src: url("/fonts/Northwell.ttf") format("truetype"),
+       url("/fonts/Northwell.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NorthwellAlt";
+  src: url("/fonts/Northwell-Alt.ttf") format("truetype"),
+       url("/fonts/Northwell-Alt.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NorthwellSwash";
+  src: url("/fonts/Northwell-Swash.ttf") format("truetype"),
+       url("/fonts/Northwell-Swash.otf") format("opentype");
+  font-display: swap;
+}
+
 html,
 body {
   scroll-behavior: smooth;
 }
 
 body {
-  background:
-    radial-gradient(circle at 0% 0%, rgba(255, 75, 75, 0.18), transparent 55%),
-    radial-gradient(circle at 100% 100%, rgba(255, 155, 115, 0.12), transparent 55%),
-    radial-gradient(circle at top, #151515 0, #050505 55%, #000 100%);
+  background: linear-gradient(
+    180deg,
+    #0f0f0f 0%,
+    #1a1a1a 40%,
+    #2b0d0d 100%
+  );
 }
 
 .section-padding {
@@ -22,3 +46,46 @@ body {
   @apply max-w-6xl mx-auto;
 }
 
+/* Loading screen animations */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    width: 0;
+  }
+  50% {
+    width: 80px;
+  }
+}
+
+.loading-fade-out {
+  animation: fadeOut 0.6s ease-out forwards;
+}
+
+.loading-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.loading-pulse-line {
+  animation: pulse-line 1.4s ease-in-out infinite;
+}

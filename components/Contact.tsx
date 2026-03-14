@@ -1,24 +1,30 @@
-import { Section } from "./Section";
-
 export function Contact() {
   return (
-    <Section
+    <section
       id="contact"
-      eyebrow="Contact"
-      title="Let’s talk about your next backend."
-      subtitle="Open to backend and platform roles where reliability, clean architecture, and long-term maintainability matter."
-      align="center"
+      className="section-padding py-20 md:py-28 border-t border-zinc-800/60"
+      aria-labelledby="contact-title"
     >
-      <div className="flex flex-col items-center gap-6 text-center">
-        <p className="max-w-xl text-sm text-zinc-200">
-          Whether you&apos;re scaling an existing system, modernising a legacy
-          stack, or planning a new platform, I&apos;m interested in problems
-          where backend quality directly impacts people on the ground.
+      <div className="section-max-width max-w-2xl mx-auto text-center">
+        <p className="text-sm tracking-[0.3em] uppercase text-accent/80 mb-4 font-medium">
+          Contact
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+        <h2
+          id="contact-title"
+          className="font-northwell text-5xl md:text-6xl lg:text-7xl text-zinc-100"
+        >
+          Let&apos;s Connect
+        </h2>
+        <p className="mt-5 text-lg text-zinc-400 leading-relaxed font-medium">
+          Whether you&apos;re scaling an existing platform, modernising a
+          legacy stack, or starting fresh — I&apos;m interested in problems
+          where backend quality has a real impact.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href="mailto:tuan.na.02x2@gmail.com"
-            className="inline-flex items-center rounded-full bg-accent px-6 py-2.5 font-medium tracking-wide text-black shadow-soft transition hover:bg-accentSoft"
+            className="inline-flex items-center rounded-full bg-accent px-7 py-3 text-sm font-semibold tracking-wide text-black transition hover:bg-accentSoft"
           >
             Email me
           </a>
@@ -26,7 +32,7 @@ export function Contact() {
             href="https://github.com/tuthth"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center rounded-full border border-white/15 px-5 py-2 text-zinc-200 hover:border-accent hover:text-white transition"
+            className="inline-flex items-center rounded-full border border-zinc-700 px-7 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:text-white"
           >
             GitHub
           </a>
@@ -34,24 +40,16 @@ export function Contact() {
             href="https://linkedin.com/in/anh-tuan-22863a2b5"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center rounded-full border border-white/15 px-5 py-2 text-zinc-200 hover:border-accent hover:text-white transition"
+            className="inline-flex items-center rounded-full border border-zinc-700 px-7 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:text-white"
           >
             LinkedIn
           </a>
-          <a
-            href="https://www.facebook.com/1nhtu1n"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center rounded-full border border-white/15 px-5 py-2 text-zinc-200 hover:border-accent hover:text-white transition"
-          >
-            Facebook
-          </a>
         </div>
-        <p className="text-[0.7rem] uppercase tracking-[0.25em] text-muted">
+
+        <p className="mt-8 text-sm uppercase tracking-[0.2em] text-zinc-500 font-medium">
           Available for remote and Ho Chi Minh City – based roles.
         </p>
       </div>
-    </Section>
+    </section>
   );
 }
-
