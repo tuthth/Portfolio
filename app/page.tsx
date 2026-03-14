@@ -14,10 +14,7 @@ function Nav() {
         <div className="section-max-width flex items-center justify-between py-3">
           <a href="#top" className="flex items-center gap-2">
             <span className="font-northwell text-5xl leading-none text-zinc-100">
-              Tuan
-            </span>
-            <span className="text-base font-semibold tracking-[0.25em] uppercase text-zinc-100">
-              NGUYEN
+              Tuan Nguyen
             </span>
           </a>
           <nav className="hidden md:flex items-center gap-8 font-medium text-base text-zinc-500">

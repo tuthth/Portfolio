@@ -34,10 +34,7 @@ export function LoadingScreen() {
       {/* Logo */}
       <div className="loading-slide-up flex items-baseline gap-2.5">
         <span className="font-northwell text-6xl sm:text-7xl text-zinc-100">
-          Tuan
-        </span>
-        <span className="text-xl sm:text-2xl font-semibold tracking-[0.3em] uppercase text-zinc-100">
-          NGUYEN
+          Tuan Nguyen
         </span>
       </div>
 
